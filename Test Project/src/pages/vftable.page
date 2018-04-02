@@ -1,0 +1,21 @@
+<apex:page controller="MyController">
+    <apex:form >
+        <script>
+        function search()
+        {
+            console.log('hi');
+            fetchaccounts();
+            }
+        </script>
+         <apex:actionFunction name="fetchAccounts" action="{!fetchAccounts}" rerender="pbID"/>
+        <apex:outputText >Select Account::</apex:outputText>
+        <apex:selectList value="{!AccountName}" multiselect="false" size="1" onchange="search()" >
+            <apex:selectOptions value="{!items}" />
+        </apex:selectList>
+        <apex:pageBlock id="pbID">
+        <apex:pageBlockTable value="{!lstAccount}" var="la"> 
+        
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

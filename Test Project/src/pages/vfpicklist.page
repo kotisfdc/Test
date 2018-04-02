@@ -1,0 +1,9 @@
+<apex:page controller="vfpicklist_con">
+    <apex:form >
+        <apex:pageBlock >
+        <apex:selectList value="{!selected}" size="1">
+            <apex:selectOptions value="{!types}"/>
+            </apex:selectList>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

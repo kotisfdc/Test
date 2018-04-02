@@ -1,0 +1,14 @@
+<apex:page controller="NewCaseListController" >
+    <apex:image value="{!URLFOR($Resource.vfimagetest,'cats/kitten1.jpg')}"/>
+    <apex:form >
+    <apex:pageBlock >
+    <apex:repeat value="{!newCases}" var="case">
+        <li>
+	<apex:outputLink value="/{!Case.Id}">
+	  {!Case.CaseNumber}
+	  </apex:outputLink>
+	</li>
+        </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

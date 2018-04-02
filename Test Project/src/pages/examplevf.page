@@ -1,0 +1,8 @@
+<apex:page controller="tt">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!wrapperList}" var="wrap">
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

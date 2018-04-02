@@ -1,0 +1,23 @@
+<apex:page tabStyle="Account">
+<script>
+  function setFocus() {
+   document.getElementById('{!$Component.myForm.text2}').focus();
+  }   
+</script>
+
+    <apex:form id="myForm">
+
+        <apex:outputtext >Name:</apex:outputtext>
+        <apex:inputText id="text1"></apex:inputText><br></br><br></br>
+        <apex:outputtext >Name2:</apex:outputtext>
+        <apex:inputText id="text2"></apex:inputText><br></br><br></br>
+        <apex:outputtext >Name3:</apex:outputtext>
+        <apex:inputText id="text3"></apex:inputText><br></br><br></br>                
+        <apex:commandButton id="click" value="Click Me"></apex:commandButton>
+    </apex:form>
+    <apex:outputPanel id="out">    
+    </apex:outputPanel>
+<script language="javascript">
+    <body onload="setFocus()">
+</script>
+</apex:page>

@@ -1,0 +1,45 @@
+<apex:page renderAs="PDf" controller="AccountDetails">
+        <apex:pageBlock title="Account Details" >
+            <!--<apex:pageBlockTable value="{!matchedAccount}" var="a">
+                
+                <apex:column value="{!a.id}"/>
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.phone}"/>
+                <apex:column value="{!a.rating}"/>
+                
+            </apex:pageBlockTable>-->
+            
+            <apex:repeat value="{!matchedAccount}" var="a">
+                <table  border="2" >
+                    
+                 <tr style="font-size:12px; font-weight:bold;">
+                    <td> Account Id </td>
+                     <td width="10%">
+                    {!a.id}
+                </td>
+                </tr>
+                <tr style="font-size:12px; font-weight:bold;">
+                    <td> Account Name </td>
+                     <td width="10%">
+                    {!a.name}
+                </td>
+                </tr>
+                 <tr style="font-size:12px; font-weight:bold;">
+                    <td> Phone </td>
+                     <td width="10%">
+                    {!a.phone}
+                </td>
+                </tr> 
+                <tr style="font-size:12px; font-weight:bold;">
+                    <td> Rating </td>
+                     <td width="10%">
+                    {!a.rating}
+                </td>
+                </tr>
+                </table>
+            
+            </apex:repeat>
+           
+            
+        </apex:pageBlock>
+</apex:page>

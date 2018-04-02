@@ -1,0 +1,27 @@
+<aura:component controller="Lightning_searchNameAndEmail_con">
+    
+    <aura:attribute name="name" type="String" access="GLOBAL"/>
+    <aura:attribute name="email" type="String" access="GLOBAL"/>
+    
+    <ui:inputText label="Enter Name" aura:id="nameid" value="{!v.name}" />
+    <ui:inputText label="Enter Email" aura:id="emailid" value="{!v.email}" />
+    <ui:inputRadio aura:id="r0" name="AND" label="AND" change="{!c.onAndFunction}" />
+    <ui:inputRadio aura:id="r1" name="AND" label="OR
+                                                  " change="{!c.onOrFunction}"/>
+    
+    <aura:attribute name="accounts" type="Account[]"/>
+    <table>
+        <tr>
+            <td><b>Name</b></td>&nbsp;&nbsp;&nbsp; 
+            <td><b>Email</b></td> 
+            
+        </tr>
+         <aura:iteration items="{!v.accounts}" var="lst" >
+             <tr>
+                 <td>{!lst.Name}</td>&nbsp;&nbsp;&nbsp; 
+                 <td>{!lst.Email__c}</td>
+             </tr>
+    </aura:iteration>
+    </table>
+   
+</aura:component>

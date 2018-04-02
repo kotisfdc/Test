@@ -1,0 +1,28 @@
+<apex:page StandardController="Account" showHeader="false">
+<!-- Add the JQuery library into your static resourses -->
+ <apex:relatedList list="ProcessSteps"/>
+ <style>
+     /* to hide submit for approval button */
+     input.btn[name="piSubmit"] {
+            display: none;
+     }     
+     /* to hide recall button */
+     input.btn[name="piRemove"] { 
+            display: none;
+     }     
+ </style>
+ <script>
+     var jeet = $.noConflict();
+     jeet(document).ready(function(){
+         jeet('.actionLink').each( function(){
+            var addr =  jeet(this).attr("href");
+             jeet(this).attr("href", "#");
+             jeet(this).bind( "click", function() { window.parent.location= addr; });
+         });
+         jeet('.tertiaryPalette').css("background-color", "#ddb929");
+         jeet('.secondaryPalette').css('border-top', '3px solid #ddb929');
+         //if you recuirement is not show any button, then remove the styles from above and add/uncomment below statement
+         //jeet('.btn').css('display', 'none');
+     });
+ </script>
+</apex:page>

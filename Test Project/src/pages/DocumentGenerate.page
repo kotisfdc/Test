@@ -1,0 +1,32 @@
+<apex:page sidebar="false"  Controller="DocumentGenerate_con" cache="true"> <!-- contentType="application/msword"-->
+    <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+        <head>
+            
+        </head>  
+        <body>
+            <!-- Content -->
+            <div>
+               <apex:form >
+                 <apex:variable var="cnt" value="{!1}" />    
+                    <apex:repeat value="{!lstContact}" var="varWork">
+                        <table border="1" style="width: 100%;border-collapse: collapse;border-bottom-color: black;border-style: double">
+                            <tr style="background-color:{!'#d4cfc8'};">
+                                <th  width="20%">contact Id </th>
+                                <td  width="80%" style="background-color:{!'#d4cfc8'};">{!varWork.id}</td>
+                            </tr>
+                            <tr>
+                                <th  width="20%">Contact Names</th>
+                                <td  width="80%">
+                                    {!varWork.name}
+                                </td>
+                            </tr>
+                        </table>
+                   </apex:repeat>
+               </apex:form> 
+            </div>
+            
+        </body>
+        
+    </html>
+    
+</apex:page>

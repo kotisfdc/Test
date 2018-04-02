@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name="name" type="String" access="GLOBAL"/>
+    <aura:attribute name="AccountRec" type="Lightning_PickListBaseAccounts_con.WrapperAccounts[]" />
+    <tr>
+        <td>
+            <ui:inputSelect >
+                <aura:iteration items="{!v.AccountRec}" var="lst">
+                    <ui:inputSelectOption text="{!lst.ApiName}" label="{!lst.LabelName}" value="">
+                    </ui:inputSelectOption>
+                </aura:iteration>
+            </ui:inputSelect>
+        </td>
+        <td><ui:inputText label="" aura:id="nameid" value="{!v.name}"/></td>
+           
+
+        <td><ui:inputRadio aura:id="r0" name="Radio" label="AND" /></td>
+        <td><ui:inputRadio aura:id="r1" name="Radio" label="OR"/></td>
+        
+    </tr>
+</aura:component>

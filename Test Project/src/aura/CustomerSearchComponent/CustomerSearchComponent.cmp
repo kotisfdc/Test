@@ -1,0 +1,7 @@
+<aura:component controller="CreateCandidateRecord1"  >
+    <aura:registerEvent name="customerSearchComplete" type="c:CustomerSearchCompleteEvent"/>
+    <div class="searchInput">
+        <input type="text" class="form-control" onkeyup="{!c.searchKeyChange}"
+               placeholder="Search"/>    </div>
+    
+</aura:component>

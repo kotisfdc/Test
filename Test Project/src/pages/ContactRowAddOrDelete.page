@@ -1,0 +1,29 @@
+<apex:page controller="Contact_AddOrDel_con">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:variable var="rowNum" value="{!0}"  />               
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!AddConList}" var="a">
+                    <apex:column headerValue="Contact Name">
+                        <apex:inputField value="{!a.firstname}"/>
+                    </apex:column>
+                    <apex:column headerValue="Mobile Number">
+                        <apex:inputField value="{!a.Phone}"/>
+                    </apex:column>
+                    <apex:column headerValue="Email">
+                        <apex:inputField value="{!a.Email}"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:commandLink value="Add" action="{!addRow}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:commandLink value="Del" action="{!delRow}" >
+                            <apex:param value="{!rowNum}" name="index" />
+                        </apex:commandLink>
+                        <apex:variable var="rowNum" value="{!rowNum +1}"/>
+                    </apex:column>     
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

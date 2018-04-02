@@ -1,0 +1,18 @@
+<apex:page standardController="Contact" recordSetVar="contacts">
+!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" ></script>   
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>   
+
+    <apex:form >
+   <ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+    <apex:repeat value="{!contacts}" var="c">
+        {!c.name}
+    </apex:repeat>
+        </apex:form>
+</apex:page>

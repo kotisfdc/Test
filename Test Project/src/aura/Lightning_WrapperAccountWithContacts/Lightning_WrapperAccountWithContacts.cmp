@@ -1,0 +1,31 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="Lightning_WrapperAccountWithContacts_con" >
+    
+    <aura:attribute name="name" type="String" access="GLOBAL"/>
+    
+    <ui:inputText label="Enter Name" aura:id="nameid" value="{!v.name}" />
+    <ui:button aura:id="button" class="button" label="Search" press="{!c.getInput}"/>
+    <aura:attribute name="accounts" type="Lightning_SearchNameAndPrint_con.WrapperAccounts[]"/>
+    <table>
+        <tr>
+            <td><b>CheckBox</b></td>&nbsp;&nbsp;
+            <td><b>Account Name</b></td>&nbsp;&nbsp;
+            <td><b>Email</b></td>
+        </tr>
+        <aura:iteration items="{!v.accounts}" var="accs" >
+            
+            <tr>
+                <td><ui:inputCheckbox value="{!accs.chkbox}"/> </td>&nbsp;&nbsp;
+                <td>{!accs.accRec.Name}</td>&nbsp;&nbsp;
+                <td>{!accs.accRec.Email__c}</td>
+            </tr>
+        </aura:iteration>
+         <ui:button class="button" label="Click me" press="{!c.getAccountEmail}"/>
+    </table>
+    
+    <aura:attribute name="selectAccounts" type="Contact[]"/>
+            <aura:iteration items="{!v.selectAccounts}" var="lst" >
+                {!lst.Name}<br/>{!lst.Email}
+    </aura:iteration>
+    
+</aura:component>

@@ -1,0 +1,9 @@
+<apex:component controller="wrapperclassForDependentObjects_con">
+   <apex:form >
+    <apex:pageBlock title="Displaying Both Label and Item Same PageBlockTable">
+       <apex:pageBlockTable value="{!wrapList}" var="lst">
+        <apex:column value="{!lst.items.name}"/>
+       </apex:pageBlockTable>
+    </apex:pageBlock>
+   </apex:form>
+</apex:component>

@@ -1,0 +1,100 @@
+<aura:component controller="CreateCandidateRecord1" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <ltng:require styles="{!$Resource.bootstrap}"/>
+    
+    <div style="width:800px; margin:0 auto;">
+        <button class="slds-button slds-button--neutral slds-not-selected" 
+                onclick="{!c.new}"  >New</button>
+    </div>  
+    
+    
+    <!-- <aura:attribute name="recordId" type="string" />-->
+    <aura:attribute name="Customer" type="Customer__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:SearchKeyChange" action="{!c.searchKeyChange}"/>
+
+    <aura:attribute name="sec1" type="Boolean" default="true"/>
+    <aura:attribute name="sec2" type="Boolean"/>
+    <aura:attribute name="sec3" type="Boolean"/>
+    
+    <!--Delete the Records-->
+    <aura:if isTrue="{!v.sec1}">
+        <ul class="list-group">
+            <aura:iteration items="{!v.Customer}" var="cc">
+                Name:<ui:outputText aura:id="name" value="{!cc.Name}" />
+                Phone: <ui:outputPhone aura:id="phone"  value="{!cc.Phone__c}" />
+                Email: <ui:outputEmail aura:id="oEmail"   value="{!cc.Email__c}" />
+                Address: <ui:outputTextArea aura:id="oTextarea" value="{!cc.Address__c}"/>
+                <div >
+                    <button class="slds-button slds-button--neutral slds-not-selected" 
+                            onclick="{!c.edit}" id="{!cc.Id}" >Edit</button>
+                    
+                    <button class="slds-button slds-button--neutral slds-not-selected" 
+                            onclick="{!c.delete}" id="{!cc.Id}" >Delete</button>
+                    
+                </div> 
+            </aura:iteration>
+        </ul>
+    </aura:if>
+    
+    <!--Retrive the Records edit the values-->
+    <aura:attribute name="Customer1" type="Customer__c"/>
+    <aura:if isTrue="{!v.sec2}">
+        <aura:iteration items="{!v.Customer}" var="cc">
+            <div class="container-fluid">
+                <h3>Please Enter Candidate Information</h3>
+                <div class="form-group">
+                    <label>Customer Name</label>
+                    <ui:inputText class="form-control" value="{!cc.Name}" required="true"/>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <ui:inputPhone class="form-control" value="{!cc.Phone__c}"/>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <ui:inputEmail class="form-control" value="{!cc.Email__c}" placeholder="abc@email.com"/>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <ui:inputTextArea class="form-control" value="{!cc.Address__c}"/>
+                </div>
+            </div>
+            
+        </aura:iteration>
+        <div class="col-md-4 text-center">
+            <ui:button class="btn btn-default" press="{!c.updateDetails}">Update</ui:button>
+        </div>
+    </aura:if>
+    
+    <aura:attribute name="Customer2" type="Customer__c" default="{'sobjectType': 'Customer__c',
+                                                                 'Name': '',
+                                                                 'Phone__c': '',
+                                                                 'Email__c': '',
+                                                                 'Address__c':''                                 
+                                                                 }"/>
+    
+    <aura:if isTrue="{!v.sec3}">
+        <div class="container-fluid">
+            <h3>Please Enter Candidate Information</h3>
+            <div class="form-group">
+                <label>Customer Name</label>
+                <ui:inputText class="form-control" value="{!v.Customer2.Name}" required="true"/>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <ui:inputPhone class="form-control" value="{!v.Customer2.Phone__c}"/>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <ui:inputEmail class="form-control" value="{!v.Customer2.Email__c}" placeholder="abc@email.com"/>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <ui:inputTextArea class="form-control" value="{!v.Customer2.Address__c}"/>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <ui:button class="btn btn-default" press="{!c.create}">Create</ui:button>
+        </div>  
+    </aura:if>
+</aura:component>

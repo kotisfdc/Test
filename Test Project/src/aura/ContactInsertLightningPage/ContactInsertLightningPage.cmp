@@ -1,0 +1,95 @@
+<aura:component controller="ContactInsertApexController" >
+    
+    <aura:attribute name="newContact" type="Contact"
+                    default="{ 'sobjectType': 'Contact',
+                             'First Name': '',
+                             'Last Name': '',
+                             'Phone': '',
+                             'Email': '',
+                             'Gender': '',
+                             'DateofBirth': ''
+                             }"/>
+    <div class="slds-box">
+        <div class="slds-align_absolute-center"><strong>Contact Registration Form.</strong></div>
+        <div class="slds-border_top">
+            <div class="slds-border_right">
+                <div class="slds-border_bottom">
+                    <div class="slds-border_left">
+                        <div class="slds-box slds-box_xx-small">
+                            
+                            <div class="slds-form slds-form_stacked">
+                                <div class="slds-form-element">
+                                    <div class="slds-grid">
+                                        <div class="slds-col">
+                                            <ui:inputText aura:id="ContactFirstName" label="First Name"
+                                                          class="slds-input"
+                                                          labelClass="slds-form-element__label"
+                                                          value="{!v.newContact.FirstName}"
+                                                          placeholder="FirstName"/>
+                                        </div>
+                                        <div class="slds-col">
+                                            <ui:inputText aura:id="ContactLastName" label="Last Name"
+                                                          class="slds-input"
+                                                          labelClass="slds-form-element__label"
+                                                          value="{!v.newContact.LastName}"
+                                                          placeholder="LastName"
+                                                          required="true"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <ui:inputtext aura:id="ContactGender" label="Gender"
+                                                      class="slds-input"
+                                                      labelClass="slds-form-element__label"
+                                                      value="{!v.newContact.Gender__c}"
+                                                      placeholder="Gender"/>
+                                        
+                                    </div>
+                                    
+                                    <div>
+                                        <ui:inputPhone aura:id="ContactPhone" label="Phone"
+                                                       class="slds-input"
+                                                       labelClass="slds-form-element__label"
+                                                       value="{!v.newContact.Phone}"
+                                                       placeholder="Phone"/>
+                                    </div>
+                                    <div>
+                                        <ui:inputEmail aura:id="ContactEmail" label="Email"
+                                                       class="slds-input"
+                                                       labelClass="slds-form-element__label"
+                                                       value="{!v.newContact.Email}"
+                                                       placeholder="Email"/>
+                                    </div>
+                                    <div>
+                                        <ui:inputDate aura:id="ContactBirthDate" label="DateOfBirth"
+                                                      class="slds-input"
+                                                      labelClass="slds-form-element__label"
+                                                      value="{!v.newContact.Birthdate }"
+                                                      displayDatePicker="true"/>
+                                    </div>
+                                    <div >
+                                        <ui:inputText aura:id="ContactCountry" label="Country"
+                                                      class="slds-input"
+                                                      labelClass="slds-form-element__label"
+                                                      value="{!v.newContact.Country__c}"
+                                                      placeholder="Country"/>
+                                    </div>
+                                    <div>
+                                        
+                                        <ui:button label="Submit"
+                                                   class="slds-button slds-button_brand"
+                                                   labelClass="label"
+                                                   press="{!c.createContact}"/>
+                                        <ui:button label="Cancel"
+                                                   class="slds-button slds-button_brand"
+                                                   labelClass="label" press="{!c.Close}"/>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

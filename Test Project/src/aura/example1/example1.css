@@ -1,0 +1,16 @@
+.THIS {
+    Background-color:skyblue;
+    color:yellow;
+}
+.THIS.white {
+background-color: orange;
+}
+.THIS .red {
+background-color: red;
+}
+.THIS .blue {
+background-color: black;
+}
+.THIS .green {
+background-color: green;
+}

@@ -1,0 +1,16 @@
+<apex:page standardController="Account" contentType="application/vnd.ms-excel#Demo.xls">
+   <apex:form >
+   <apex:pageBlock title="Hello {!$User.FirstName}!">
+      You are viewing the {!account.name} account.
+   </apex:pageBlock>
+   <apex:pageBlock title="Contacts">
+      <apex:pageBlockTable value="{!account.Contacts}" var="contact">
+         <apex:column value="{!contact.Name}"/>
+         <apex:column value="{!contact.MailingCity}"/>
+         <apex:column value="{!contact.Phone}"/>
+      </apex:pageBlockTable>
+      
+   </apex:pageBlock>
+   <apex:commandButton value="Export To Excel" action="/apex/vf2"  />  
+    </apex:form>
+</apex:page>

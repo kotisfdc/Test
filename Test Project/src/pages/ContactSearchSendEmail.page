@@ -1,0 +1,27 @@
+<apex:page controller="ContactSearchSendEmail_con">
+    <apex:form >
+        <apex:pageBlock title="Search Contact" id="pb1" rendered="{!pblock1}">
+        <apex:outputLabel value="Enter Name"></apex:outputLabel>
+            <apex:inputText value="{!conName}"/>
+            <apex:commandButton action="{!Search}" value="Search"/>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Result " id="pb2" rendered="{!pblock2}">
+            <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlockTable value="{!wraplist}" var="lst">
+            <apex:column >
+                <apex:inputCheckbox value="{!lst.chkbox}"/>
+            </apex:column>
+            <apex:column value="{!lst.conRec.name}"/>
+			<apex:column value="{!lst.conRec.email}"/>
+       	</apex:pageBlockTable>
+         <apex:commandButton action="{!sendEmail}" value="Send Email" >
+          <!--<apex:param name="addressInput1" assignTo="{!addressInput}" value="param1" />
+          <apex:param name="subjectInput1" assignTo="{!subjectInput}" value="param2" />
+          <apex:param name="monthYearInput1" assignTo="{!bodyInput}" value="param3" />-->
+         </apex:commandButton>
+        </apex:pageBlock>
+        
+        
+    </apex:form>
+</apex:page>

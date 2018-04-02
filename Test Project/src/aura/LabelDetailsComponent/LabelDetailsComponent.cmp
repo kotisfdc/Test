@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable" controller="CreateCandidateRecord" >
+<aura:attribute name="candidate" type="Customer__c" default="{'sobjectType': 'Customer__c',
+                         'Name': '',
+                         'Phone__c': '',
+                         'Email__c': '',
+                         'Address__c':''                                 
+                       }"/>
+    
+    <div class="container-fluid">
+        <h3>Please Enter Candidate Information</h3>
+        <div class="form-group">
+            <label>Customer Name</label>
+            <ui:inputText class="form-control" value="{!v.candidate.Name}" required="true"/>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <ui:inputPhone class="form-control" value="{!v.candidate.Phone__c}"/>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <ui:inputEmail class="form-control" value="{!v.candidate.Email__c}" placeholder="abc@email.com"/>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <ui:inputTextArea class="form-control" value="{!v.candidate.Address__c}"/>
+        </div>
+    </div>
+    <div class="col-md-4 text-center">
+        <ui:button class="btn btn-default" press="{!c.create}">Create</ui:button>
+  </div>
+    
+</aura:component>

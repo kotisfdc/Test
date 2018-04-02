@@ -1,0 +1,31 @@
+<aura:component controller="PicklistDemoController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="AccountRec" type="PicklistDemoController.wrapper[]" />
+    <aura:attribute name="options" type="List" />
+    
+    <div class="slds-grid slds-grid_vertical-align-end ">
+        
+            
+            Fields
+            <ui:inputSelect >
+                <aura:iteration items="{!v.AccountRec}" var="lst">
+                    <ui:inputSelectOption text="{!lst.ApiName}" label="{!lst.LabelName}" value="">
+                    </ui:inputSelectOption>
+                </aura:iteration>
+            </ui:inputSelect>
+            
+       
+            <lightning:select name="mySelect" label="Select Operator:" aura:id="mySelect" >
+                <aura:iteration items="{!v.options}" var="item">
+                    <option text="{!item.label}" value="{!item.value}" />
+                </aura:iteration>
+            </lightning:select>
+       
+            <ui:inputText label="Value" value="" />
+      
+        <div>
+        <ui:button aura:id="button"  label="Add" press="{!c.getInput}"/>
+        </div>
+    </div>
+    
+</aura:component>

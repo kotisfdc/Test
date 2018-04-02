@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="contacts" type="Contact[]"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <table>
+        <c:ContactsListItem />
+    </table>
+</aura:component>

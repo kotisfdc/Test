@@ -1,0 +1,23 @@
+<aura:component >
+    <aura:attribute name="contacts" type="Contact[]" />
+    <aura:attribute name="countAura" type="String" default="0"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:handler name="deleteContact" event="c:deleteConListEvt" action="{!c.removeContact}" />    
+    <table>
+        
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <div>
+                <c:Task_AddorDeleteINLightningfields contactsRec="{!v.contacts}" aura:id="count1"/>
+                {!v.body}
+            </div> 
+                    <td><lightning:button label="Add" onclick="{!c.addNewRow}"/></td>
+        </tr>
+    </table>
+</aura:component>

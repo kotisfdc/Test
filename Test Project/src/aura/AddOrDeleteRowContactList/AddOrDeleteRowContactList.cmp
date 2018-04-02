@@ -1,0 +1,13 @@
+<aura:component controller="AddOrDeleteRowinContacts_con" access="public" >
+    <aura:attribute name="contacts" type="Contact[]" access="private"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <table class="borderCls">
+        <tr>
+            <th class="borderCls">Name</th> 
+            <th class="borderCls">AccountName</th>
+        </tr>   
+        <aura:iteration items="{!v.contacts}" var="contact">
+            <c:AddOrDeleteRowContactListItem contactRec="{!contact}"/>
+        </aura:iteration>
+    </table>
+</aura:component>

@@ -1,0 +1,45 @@
+<apex:page controller="AccountDetails">
+    <script>
+    function JSFun()
+    {
+        alert('HI SFDC');
+        actfun();
+    }
+    </script>
+    <apex:form id="frmid">
+        <apex:actionFunction name="actfun" action="{!fetchAccount}" reRender="frmid"/>
+        <apex:pageBlock title="Account Searching Based on name">
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    Choose Name ::  
+                    <apex:selectList size="1" onchange="JSFun()" value="{!selectedName}">
+                        <apex:selectOptions value="{!names}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Account Details " >
+            <apex:pageBlockTable value="{!matchedAccount}" var="a">
+             <!-- <apex:detail subject="{!a.id}" relatedList="false" title="true"/>-->
+             <!--  <table>
+                  <tr>
+                    <td>{!a.id}</td><br/>
+                    <td>{!a.name}</td><br/>
+                    <td>{!a.phone}</td><br/>
+                    <td>{!a.rating}</td><br/>
+                 </tr>
+                </table> -->
+                <apex:column value="{!a.id}"/>
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.phone}"/>
+                <apex:column value="{!a.rating}"/>
+                
+            </apex:pageBlockTable>
+            <!--<apex:outputField value="{!matchedAccount.Name}"/><br/>
+<apex:outputField value="{!matchedAccount.Phone}"/><br/>
+<apex:outputField value="{!matchedAccount.Rating}"/>-->
+            
+        </apex:pageBlock>
+        <apex:commandLink target="_blank" action="{!renderAsPdf}" value="pdf view"/>
+    </apex:form>
+</apex:page>

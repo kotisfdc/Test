@@ -1,0 +1,23 @@
+<apex:page controller="schemademo2" >
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockSection id="fields" >
+         <apex:selectList value="{!selectedobject}" label="Object:::" size="1">
+          <apex:selectOptions value="{!objname}"/>
+            <apex:actionSupport event="onchange" action="{!searchFields}"/>
+         </apex:selectList>
+         <apex:pageBlockSectionItem >
+            <apex:selectList value="{!selectedfield}" label="Field:::" size="1">
+              <apex:selectOptions value="{!fldname}" />
+               <apex:actionSupport event="onchange" action="{!searchValues}"/>
+            </apex:selectList>
+         </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem >
+            <apex:selectList value="{!selectedvalue}" label="Values:::" size="1" id="values" >
+              <apex:selectOptions value="{!valname}" />
+            </apex:selectList>
+         </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>  
+</apex:page>

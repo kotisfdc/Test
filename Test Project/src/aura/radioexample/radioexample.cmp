@@ -1,0 +1,9 @@
+<aura:component >
+<b>Radio Buttons - Group</b>
+   <ui:inputRadio aura:id="r0" name="others" label="andddd" change="{!c.onGroup}"/>
+   <ui:inputRadio aura:id="r1" name="others" label="Qualification" change="{!c.onGroup}" />
+   <ui:inputRadio aura:id="r2" name="others" label="Needs Analysis" change="{!c.onGroup}"/>
+   <ui:inputRadio aura:id="r3" name="others" label="Closed Lost" change="{!c.onGroup}"/>
+   <b>Selected Items:</b>
+   <p><ui:outputText class="result" aura:id="radioGroupResult" value="" /></p>
+</aura:component>

@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable" >
+    <c:campingList1 />
+    <c:campingHeader1 />
+</aura:component>

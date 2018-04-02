@@ -1,0 +1,38 @@
+<aura:component controller="Lightning_FilterCondition_con">
+    <aura:registerEvent name="loadMyEvent" type="c:Result"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="AccountRec" type="Lightning_FilterCondition_con.WrapperAccounts[]" />
+    <aura:attribute name="myText" type="string" />
+    <aura:attribute name="isString" type="Boolean" />
+    <aura:attribute name="isDate" type="Boolean" />
+    <aura:attribute name="operator" type="String" />
+    <aura:attribute name="FieldAttr" type="String" />
+    <aura:attribute name="OperatorAttr" type="String" />
+    <aura:attribute name="ValueAttr" type="String" />
+    
+    <aura:attribute name="date" type="Date" access="GLOBAL"/>
+    <aura:handler name="change" value="{!v.date}" action="{!c.dateChange}"/>
+
+    <tr>
+        <!--Drop Down list-->
+        <td> <ui:inputSelect aura:id="levels" change="{!c.onSelectChange}">
+            <aura:iteration items="{!v.AccountRec}" var="lst">
+                <ui:inputSelectOption text="{!lst.ApiName}" label="{!lst.LabelName}" value="">
+                </ui:inputSelectOption>
+            </aura:iteration>
+            </ui:inputSelect> </td>
+        
+        <!--operator values-->
+        <td><ui:inputSelect label="" class="dynamic" aura:id="InputSelectDynamic" change="{!c.onOperatorChange}"/></td>
+        
+        <!--input values-->
+        <aura:renderif isTrue="{!v.isString}">
+            <td><ui:inputText aura:id="InputVal" label="" class="field" value="{!v.myText}" change="{!c.changeInputString}"/></td>
+        </aura:renderif>
+        
+        <aura:renderif isTrue="{!v.isDate}">
+            <ui:inputDate aura:id="orderDate" label="" change="{!c.dateChange}" value="{!v.date}" displayDatePicker="true"/>
+        </aura:renderif>
+    </tr>
+    <!--<ui:button label="send" press="{!c.searchRecord}"/>-->
+</aura:component>

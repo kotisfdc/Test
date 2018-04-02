@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" >
+    <aura:attribute name="PassResult" type="String" />
+    <aura:attribute name="PassField" type="String" />
+    <aura:attribute name="PassOperator" type="String" />
+    <aura:attribute name="PassDate" type="String" />
+
+</aura:event>

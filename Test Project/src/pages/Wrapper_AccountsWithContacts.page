@@ -1,0 +1,23 @@
+<apex:page controller="Wrapper_AccountsWithContacts_con">
+    <apex:form >
+        <apex:pageBlock title="Checkbox with Accounts ">
+            <apex:pageBlockTable value="{!wrapList}" var="lst">
+                <apex:column >
+                    <apex:inputCheckbox value="{!lst.chkbox}"/>
+                </apex:column>
+                <apex:column value="{!lst.accRec.name}"/>
+                <apex:column value="{!lst.accRec.Rating}"/>
+                <apex:column value="{!lst.accRec.Phone}"/>
+            </apex:pageBlockTable>
+            <apex:commandButton action="{!selectMethod}" value="Find Contacts"/>
+        </apex:pageBlock>
+        <apex:pageBlock title=" Selected Account Related Contacts">
+      <apex:pageMessages ></apex:pageMessages>
+      <apex:pageBlockTable value="{!selectedContacttRecs}" var="sel">
+        <apex:column value="{!sel.lastname}"/>
+         <apex:column value="{!sel.email}"/>
+
+     </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

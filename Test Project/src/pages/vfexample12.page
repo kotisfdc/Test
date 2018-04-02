@@ -1,0 +1,8 @@
+<apex:page controller="SearchPageController">
+    <apex:form >
+        <apex:facet name="Fields"></apex:facet>
+        <apex:selectList value="{!SelectFieldType}" multiselect="false" size="1">
+            <apex:selectOptions value="{!fields}"/>
+        </apex:selectList>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:registerEvent name="loadMyEvent" type="c:SearchValue"/>
+    <aura:attribute name="myText" type="string"/>
+    <ui:inputText label="" class="field" value="{!v.myText}" placeholder="Search"/>
+    <lightning:button label="Search" onclick="{!c.searchKeyChange}"/>
+</aura:component>

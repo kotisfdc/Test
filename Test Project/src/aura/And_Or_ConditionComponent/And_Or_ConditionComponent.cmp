@@ -1,0 +1,13 @@
+<aura:component controller="Lightning_FilterCondition_con">
+    <!--
+        <aura:attribute name="ANDAttrib" type="String" />
+        <aura:attribute name="ORAttrib" type="String" />
+        <ui:inputRadio aura:id="r0" name="AND_OR" label="AND" change="{!c.AND_RadioBUTTON}"/>
+        <ui:inputRadio aura:id="r1" name="AND_OR" label="OR" change="{!c.OR_RadioBUTTON}"/>-->
+    
+    
+    <aura:registerEvent name="MyEvent" type="c:And_Or_Event"/>
+    <aura:attribute name="AndORAttr" type="String" />
+    <td><ui:inputRadio aura:id="r0" name="others" label="AND" change="{!c.AND_RadioBUTTON}"/></td>
+    <td><ui:inputRadio aura:id="r1" name="others" label="OR" change="{!c.AND_RadioBUTTON}" /></td>
+</aura:component>

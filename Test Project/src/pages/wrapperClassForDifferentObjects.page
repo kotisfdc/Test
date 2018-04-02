@@ -1,0 +1,41 @@
+<apex:page controller="wrapperclassForDifferentObjects_con" >
+    <apex:form >
+        <apex:pageBlock title="wrapper class details">
+            <!--<apex:pageBlockTable value="{!wrapList}" var="lst" >
+<apex:pageBlockTable value="{!lst.items}" var="items" >
+<apex:column value="{!items.Name}"/>
+<apex:column value="{!items.Status__c}"/>
+<apex:column value="{!lst.labels.name}"/>
+<apex:column value="{!lst.labels.Phone__c}"/>
+</apex:pageBlockTable>
+</apex:pageBlockTable>-->
+            
+            
+            
+            <table>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Status</th>
+                    <th>Label Name</th>
+                    <th>Phone</th>
+                    <th>State</th>
+                </tr>
+                <apex:repeat value="{!wrapList}" var="lst">
+                    <apex:repeat value="{!lst.items}" var="items">
+                    <tr>
+                        <td>{!items.name}</td>
+                        <td>{!items.Status__c}</td>
+                        
+                        <td>{!lst.labels.name}</td>
+                        <td>{!lst.labels.Phone__c}</td>
+                        <td>{!lst.labels.State__c}</td>
+                        
+                        
+                    </tr>
+                    </apex:repeat>
+                </apex:repeat>
+            </table>
+    </apex:pageBlock>
+    
+</apex:form>
+</apex:page>

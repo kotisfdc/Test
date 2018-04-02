@@ -1,0 +1,5 @@
+<aura:component extends="c:ParentComp" >
+	<p>
+    {!v.body}
+    </p>
+</aura:component>

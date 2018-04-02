@@ -1,0 +1,21 @@
+<aura:component >
+    <div class="slds-form slds-form_stacked">
+       
+            <div class="slds-grid">
+                <div class="slds-col">
+                    <ui:inputText aura:id="ContactFirstName" label="First Name"
+                                  class="slds-input"
+                                  labelClass="slds-form-element__label"
+                                  placeholder="FirstName"/>
+                </div>
+                <div class="slds-col">
+                    <ui:inputText aura:id="ContactLastName" label="Last Name"
+                                  class="slds-input"
+                                  labelClass="slds-form-element__label"
+                                  placeholder="LastName"
+                                  />
+                </div>
+            </div>
+        
+    </div>
+</aura:component>

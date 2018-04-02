@@ -1,0 +1,7 @@
+<aura:component >
+     <aura:attribute name="contactRec" type="Contact" access="private"/>
+    <tr > 
+        <td class="borderCls" >{!v.contactRec.Name}</td> 
+        <td class="borderCls" >{!v.contactRec.Phone}</td>
+    </tr>
+</aura:component>

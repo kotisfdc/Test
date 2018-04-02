@@ -1,0 +1,23 @@
+<aura:component controller="Lightning_PickListBaseAccounts_con">
+    <aura:attribute name="AccountRec" type="Lightning_PickListBaseAccounts_con.WrapperAccounts[]" />
+    
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <table class="borderCls">
+        <tr>
+            <th class="borderCls">Picklist Values</th> 
+            <th class="borderCls">Name</th>
+            
+
+        </tr>
+         <c:fieldsComponent AccountRec="{!v.AccountRec}"/>
+        {!v.body}
+    </table>
+    <ui:button aura:id="button" class="button" label="Add" press="{!c.addNewRow}"/>
+    <ui:button aura:id="button" class="button" label="Search" press="{!c.getInput}"/>
+    
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:iteration items="{!v.accounts}" var="lst" >
+        {!lst.Name}<br/>{!lst.Email__c}
+    </aura:iteration>
+</aura:component>

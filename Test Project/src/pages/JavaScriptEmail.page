@@ -1,0 +1,14 @@
+<apex:page controller="JavaScriptEmail_con" >
+    <apex:form >
+    <apex:pageBlock title="Enter details">
+    <apex:outputLabel value="Subject"></apex:outputLabel>
+     <apex:inputText value="{!sub}"/><br/><br/>
+     <apex:outputLabel value="Message"></apex:outputLabel>
+     <apex:inputTextarea value="{!body}"/>
+
+        
+     <apex:commandButton action="{!sent}" value="Send"/>
+        
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

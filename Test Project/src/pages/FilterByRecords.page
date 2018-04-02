@@ -1,0 +1,19 @@
+<apex:page controller="FilterByRecords_con">
+    <apex:form >
+     <apex:pageBlock id="pb1">
+            
+                    <apex:outputLabel value="Select Filter Type : "/>
+                    <apex:selectList value="{!SelectField}" size="1">
+                        <apex:selectOptions value="{!items}"/>
+                    </apex:selectList>
+         <apex:outputLabel value="Select Operator : "/>
+                    <apex:selectList value="{!SelectOperator}" size="1">
+                        <apex:selectOptions value="{!values}"/>
+                    </apex:selectList>
+         
+                  <apex:outputLabel value="Select value : "/>
+				<apex:inputText />
+         <apex:commandButton value="ADD" action="{!addRow}"/>
+        </apex:pageBlock>  
+        </apex:form>
+</apex:page>

@@ -1,0 +1,117 @@
+<apex:page controller="PicklistwithDocGeneratePdf_con" renderAs="pdf">
+     <html>
+        <head>
+          <style>
+                p.MsoHeader, li.MsoHeader, div.MsoHeader{
+                    margin:0in;
+                    margin-top:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 3.0in right 6.0in;
+                }
+                p.MsoFooter, li.MsoFooter, div.MsoFooter{
+                    margin:0in;
+                    margin-bottom:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 3.0in right 6.0in;
+                }
+                @page Section1{
+                    size:8.5in 11.0in; 
+                    margin:0.5in 0.5in 0.5in 0.5in;
+                    mso-header-margin:0.5in;
+                    mso-header:h1;
+                    mso-footer:f1; 
+                    mso-footer-margin:0.5in;
+                    mso-paper-source:0;
+                }
+                div.Section1{
+                    page:Section1;
+                }
+                /*Below is the style to prevent the repetition of header and Footer.. Cheers!!!*/
+                table#hrdftrtbl{
+                    margin:0in 0in 0in 9in;
+                }        
+            </style>  
+        </head>
+        <body>
+             <div class="Section1">
+                 
+            </div>                      
+        </body>
+    </html>
+    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:repeat value="{!lstEpic}" var="lst">
+                <table border="1" style="width: 100%;border-collapse: collapse;border-bottom-color: black;border-style: double">
+                    <tr >
+                        <th  width="20%">Epic Name </th>
+                        <td  width="80%" >{!lst.name}</td>
+                    </tr>
+                </table>
+                <apex:repeat value="{!lst.work__r}" var="a">
+                    <table border="1" style="width: 100%;border-collapse: collapse;border-bottom-color: black;border-style: double">
+                        <tr>
+                            <th  width="20%">Work Order </th>
+                            <td  width="80%" >{!a.name}</td> 
+                        </tr>
+                        
+                        <tr>
+                            <th  width="20%">Priority </th>
+                            <td  width="80%" >{!a.Priority__c}</td> 
+                        </tr>
+                        
+                        <tr>
+                            <th  width="20%">Subject </th>
+                            <td  width="80%" >{!a.Subject__c}</td> 
+                        </tr>
+                        <tr>
+                            <th  width="20%">Sprint </th>
+                            <td  width="80%" >{!a.Sprint__c}</td> 
+                        </tr>
+                        <tr>
+                            <th  width="20%">Description </th>
+                            <td  width="80%" >{!a.Description__c}</td> 
+                        </tr><br/>
+                    </table>
+                </apex:repeat>
+            </apex:repeat>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:repeat value="{!lstSprint}" var="lst">
+                <table border="1" style="width: 100%;border-collapse: collapse;border-bottom-color: black;border-style: double">
+                    <tr >
+                        <th  width="20%">Sprint Name </th>
+                        <td  width="80%" >{!lst.name}</td>
+                    </tr>
+                </table>
+                <apex:repeat value="{!lst.work__r}" var="a">
+                    <table border="1" style="width: 100%;border-collapse: collapse;border-bottom-color: black;border-style: double">
+                        <tr>
+                            <th  width="20%">Work Order </th>
+                            <td  width="80%" >{!a.name}</td> 
+                        </tr>
+                        
+                        <tr>
+                            <th  width="20%">Priority </th>
+                            <td  width="80%" >{!a.Priority__c}</td> 
+                        </tr>
+                        
+                        <tr>
+                            <th  width="20%">Subject </th>
+                            <td  width="80%" >{!a.Subject__c}</td> 
+                        </tr>
+                        <tr>
+                            <th  width="20%">Epic Nmae </th>
+                            <td  width="80%" >{!a.Epic__c}</td> 
+                        </tr>
+                        <tr>
+                            <th  width="20%">Description </th>
+                            <td  width="80%" >{!a.Description__c}</td> 
+                        </tr><br/>
+                    </table>
+                </apex:repeat>
+            </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

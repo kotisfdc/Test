@@ -1,0 +1,57 @@
+<apex:page id="thePage">
+    <apex:tabPanel switchType="client" selectedTab="name2" id="theTabPanel">
+        <apex:tab label="Home" name="name1" id="tabOne">
+            <p>
+                Welcome to Home Page
+            </p>
+            <center><apex:image url="{!$Resource.fb3}" width="30%" height="25%"/></center>
+            <p>
+                *Terms and conditions applicable
+            </p>
+            
+        </apex:tab>
+        <apex:tab label="Salesperson" name="name2" id="tabTwo">
+            <p>
+                Welcome to Sales persons Page
+            </p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Empid</th>
+                </tr>
+                <tr>
+                    <td>koti</td>
+                    <td>P0182</td>
+                </tr>
+                <tr>
+                    <td>ram</td>
+                    <td>P0162</td>
+                </tr>
+            </table>
+        </apex:tab>
+        <apex:tab label="Targets" name="name3" id="tabThree">
+            <p>
+                Welcome to Sales persons Targets
+            </p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Empid</th>
+                    <th>Targets</th>
+                    
+                </tr>
+                <tr>
+                    <td>P0182</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>P0162</td>
+                    <td>76</td>
+                </tr>
+            </table>
+            <p>
+                ***This is Authenticated data  
+            </p>
+        </apex:tab>
+    </apex:tabPanel>
+</apex:page>

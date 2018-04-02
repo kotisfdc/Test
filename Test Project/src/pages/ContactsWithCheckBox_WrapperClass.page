@@ -1,0 +1,26 @@
+<apex:page controller="WrapperClassExample">
+    <apex:form >
+        <apex:pageBlock title="Wrapper class Example">
+            <apex:pageBlockTable value="{!wrapList}" var="lst">
+                <apex:column >
+                    <apex:inputCheckbox value="{!lst.chkbox}"/>
+                </apex:column>
+                <apex:column value="{!lst.sno}"/>
+                
+                <apex:column value="{!lst.con.Lastname}"/>
+                <apex:column value="{!lst.con.Phone}"/>
+            </apex:pageBlockTable> 
+            <apex:commandButton action="{!SelectContact}" Value="Submit"/>
+        </apex:pageBlock>
+        
+        
+         <apex:pageBlock title="Selected Record">
+            <apex:pageBlockTable value="{!SelectedConList}" var="lst">
+                <apex:column value="{!lst.Lastname}"/>
+                <apex:column value="{!lst.Phone}"/>
+            </apex:pageBlockTable> 
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

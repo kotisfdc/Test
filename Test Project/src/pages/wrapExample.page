@@ -1,0 +1,12 @@
+<apex:page controller="wrapExample_con">
+    <apex:form >
+        <apex:pageBlock title="Display Different Objects">
+            <apex:pageBlockTable value="{!lstWarpper}" var="wrapper" >
+                <apex:column >
+                    <apex:outputField value="{!wrapper.item.Name}"/>
+                    <apex:outputField value="{!wrapper.label.Name }"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

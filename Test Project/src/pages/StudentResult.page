@@ -1,0 +1,61 @@
+<apex:page controller="StudentResult_con">
+    <apex:form >
+        <apex:pageBlock title="Enter Student Details " id="pb1">
+                <apex:outputLabel >Enter Student RollNumber::</apex:outputLabel>
+                <apex:inputtext value="{!RollNumber}"/>
+            <apex:commandButton action="{!search}" value="Result"/>
+            <apex:commandbutton action="{!cancel}" value="Reset"></apex:commandbutton>
+        </apex:pageBlock>
+        <apex:pageBlock title="Result Section" id="pb2" rendered="{!pb2Rendered}">
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:repeat value="{!lstStd}" var="lst">
+                <table border="1" style="width: 100%;border-collapse: collapse;border-bottom-color: black;border-style: double">
+                    <caption><center>
+                        <strong>Student details</strong></center></caption>
+                    <tr >
+                        <th  width="20%">Student RollNumber </th>
+                        <td  width="50%" >{!lst.RollNumber__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Student Name </th>
+                        <td  width="50%" >{!lst.name}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Branch </th>
+                        <td  width="50%" >{!lst.Branch__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Subject1 </th>
+                        <td  width="50%" >{!lst.Subject1__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Subject2 </th>
+                        <td  width="50%" >{!lst.Subject2__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Subject3 </th>
+                        <td  width="50%" >{!lst.Subject3__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Subject4 </th>
+                        <td  width="50%" >{!lst.Subject4__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Subject5 </th>
+                        <td  width="50%" >{!lst.Subject5__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Total marks </th>
+                        <td  width="50%" >{!lst.TotalMarks__c}</td>
+                    </tr>
+                    <tr >
+                        <th  width="20%">Percentage </th>
+                        <td  width="50%" >{!lst.Percentage__c}</td>
+                    </tr>
+                    
+                    <tr><td><a href="#" onClick="window.open('/apex/StudentDataPdf?Id={!lst.id}', '_blank')"> Print</a></td></tr>
+                </table>
+            </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

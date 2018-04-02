@@ -1,0 +1,144 @@
+<apex:page controller="dynamicApex5">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" />
+    <apex:styleSheet value="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/smoothness/jquery-ui.css" />
+<style>
+        .displayNone { 
+            display:none; 
+        }
+        .displayBlock {
+            display:block;
+        }
+        .ui-autocomplete-loading { 
+            background: white url(/img/loading32.gif) right center no-repeat;
+            background-size:15px 15px; 
+        }
+        .placeHolder {
+            font-style: italic;
+        }
+       
+        .ui-autocomplete 
+        {
+            height:41px; 
+            width:149px;
+            overflow:hidden; 
+            overflow-y:scroll;
+            background-color: white;
+        }
+        .ui-menu-item {
+                margin-left: -23px;
+        }
+        .custom1 {
+            background-color: red !important;
+        }
+        .apexp .bPageBlock.apexDefaultPageBlock .pbBody .pbSubheader {
+            background-color: rgba(13, 94, 142, 0.78);
+        }
+    </style>
+    <script>
+    function redirectToPDF()
+         {
+             console.log('-------------searchWorkId----------'+ $('[id$=filterValueId]').val());
+             /*console.log('-------------searchWorkId----------'+ $('[id$=filterValueId]').val());*/
+             var idSelectedId = $('[id$=filterValueId]').val();
+             var strFilterType =  $('[id$=idFilter]').val();
+             /*var idSelectedWork = $('[id$=searchWorkId]').val();*/
+             if(strFilterType != '---NONE---' && $('[id$=filterValueTextBox]').val() != '')
+             {
+                  window.open('/apex/DocumentGenerate?filterType='+strFilterType+'&selectedId='+idSelectedId,'_blank');
+             }
+        }
+        
+    function clearPrevousSelection()
+        {
+             $('[id$=filterValueTextBox]').val('');
+             $('[id$=filterValueId]').val('');
+        }
+    </script>   
+    <apex:form id="autoCompleteForm">
+      <apex:outputPanel id="panelID" />
+        <apex:pageBlock id="searchBlock">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Generate Document" onclick="redirectToPDF();" rerender="panelID"/>
+            </apex:pageBlockButtons>
+        <apex:pageBlockSection id="searchSection" title="Select Filter" columns="1" >
+           
+            <!--filter condition-->
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Select Filter Type : "/>
+                <apex:selectList id="idFilter" value="{!strChoosenFilterType}" size="1" onchange="clearPrevousSelection();" >
+                    <apex:selectOptions value="{!types}"/>
+                </apex:selectList>
+               </apex:pageBlockSectionItem>
+            
+            <!--search name-->
+            
+            <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Enter Value" for="EpicBox" />
+                     <apex:inputText id="filterValueTextBox" value="{!searchTerm}" styleClass="placeHolder"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputHidden id="filterValueId" value="{!selectedName}" />
+            
+        </apex:pageBlockSection>
+            </apex:pageBlock>
+    </apex:form>
+    
+    <!-- For Epic -->
+    <script type="text/javascript">
+        var PLACEHOLDER = ''; 
+        var EpicObjects;
+        var queryTerm;
+        $('[id$=filterValueTextBox]').autocomplete({
+            minLength: 2,
+            source: function(request, response) {
+                        $('[id$=filterValueId]').val('');
+                        queryTerm = request.term;
+                        var varSelectedFilter =  $('[id$=idFilter]').val();
+                        dynamicApex5.searchEpic(request.term,varSelectedFilter, function(result, event){
+                            if(event.type == 'exception') {
+                                  alert(event.message);
+                            } else {
+                                 EpicObjects = result;
+                                 response(EpicObjects );
+                            }
+                        });
+                   },
+            focus: function( event, ui ) {
+                    $('[id$=filterValueTextBox]').val( ui.item.Name );
+                    return false;
+                    },
+            select: function( event, ui ) {
+                        $('[id$=filterValueTextBox]').val( ui.item.Name );
+                        $('[id$=filterValueId]').val( ui.item.Id );
+                        return false;
+                    },
+         })
+         .data( "autocomplete" )._renderItem = function( ul, item ) {
+            var entry = "<a>" + item.Name;
+            entry = entry + "</a>";
+            entry = entry.replace(queryTerm, "<b>" + queryTerm + "</b>");
+            return $( "<li></li>" )
+                .data( "item.autocomplete", item )
+                .append( entry )
+                .appendTo( ul );
+        };
+            
+        // Add or remove placeholder values
+        $('[id$=filterValueTextBox]').val(PLACEHOLDER);
+        $('[id$=filterValueTextBox]').on("focus",  function(event){
+            $tgt = $(event.target);
+            if($tgt.val() === PLACEHOLDER ){
+                $tgt.val('');
+                $tgt.removeClass('placeHolder');
+            }
+        });
+        $('[id$=filterValueTextBox]').on( "blur",  function(event){
+            $tgt = $(event.target);
+            if($tgt.val() === '' ){
+                $tgt.val(PLACEHOLDER);
+                $tgt.addClass('placeHolder');
+            }
+        });
+    </script>
+</apex:page>

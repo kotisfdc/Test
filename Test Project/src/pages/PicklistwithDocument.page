@@ -1,0 +1,32 @@
+<apex:page controller="PiklistwithDocument_con">
+   
+    <apex:form >
+        <apex:pageBlock id="pb1">
+            <apex:pageBlockSection >
+                    <apex:outputLabel value="Select Filter Type : "/>
+                    <apex:selectList value="{!SelectObject}" size="1">
+                        <apex:selectOptions value="{!items}"/>
+                        <apex:actionSupport event="onchange" action="{!onChangeFnCall}" />
+                    </apex:selectList>
+          </apex:pageBlockSection>
+        </apex:pageBlock>     
+                
+          
+        <apex:pageBlock id="pb2" rendered="{!pb2Rendered}">
+            <apex:pageBlockTable value="{!lstEpicsearch}" var="lst">
+                <apex:column > 
+			<a href="#" onClick="window.open('/apex/PicklistwithDocGeneratePdf?Id={!lst.id}', '_blank')">{!lst.Name}</a>
+                </apex:column>
+            </apex:pageBlockTable>
+     </apex:pageBlock>
+
+        <apex:pageBlock id="pb3" rendered="{!pb3Rendered}">
+     <apex:pageBlockTable value="{!lstSprintsearch}" var="lst">
+         <apex:column >
+			<a href="#" onClick="window.open('/apex/PicklistwithDocGeneratePdf?Id={!lst.id}', '_blank')">{!lst.Name}</a>
+         </apex:column>
+            </apex:pageBlockTable>
+      </apex:pageBlock>
+     
+    </apex:form>          
+</apex:page>

@@ -1,0 +1,53 @@
+<aura:component controller="Lightning_FilterCondition_con">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="AccountRec" type="Lightning_FilterCondition_con.WrapperAccounts[]" />
+    <aura:handler event="c:Result" action="{!c.searchParentRecord}"/>
+    <aura:handler event="c:And_Or_Event" action="{!c.searchAndOR}"/>
+    <aura:attribute name="accounts" type="account[]" />
+    <aura:attribute name="ANDORRec" type="String" />
+    <aura:attribute name="Counter" type="Integer" default="0" />
+    <aura:attribute name="queryArray" type="String[]" />
+    <aura:attribute name="Section1" type="Boolean" default="true"/>
+    <aura:attribute name="Section2" type="Boolean" />
+    <aura:attribute name="dataTypeStrore" type="String[]" />
+
+    <aura:renderif isTrue="{!v.Section1}">
+    <div>  
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Opearator</th>
+                <th>Value</th>
+            </tr>
+            <c:Lightning_FilterConditionFields aura:id="{!v.Counter}" AccountRec="{!v.AccountRec}"/>
+            {!v.body}
+            <lightning:button label="Add" onclick="{!c.addNewRow}"/>
+            <lightning:button label="Del" onclick="{!c.DelRow}"/>
+            <lightning:button label="Search" onclick="{!c.SearchRecord}"/>
+            
+        </table>
+    </div>
+        </aura:renderif> 
+    <aura:renderif isTrue="{!v.Section2}">
+        <div>
+            <table>
+                <tr>
+                    <td><b>Name</b></td>&nbsp;&nbsp;
+                    <td><b>Email</b></td>&nbsp;&nbsp;
+                    <td><b>Phone</b></td>&nbsp;&nbsp;
+                    <td><b>Rating</b></td>
+                </tr>
+                <aura:iteration items="{!v.accounts}" var="accs" >
+                    
+                    <tr>
+                        <td>{!accs.Name}</td>&nbsp;&nbsp;
+                        <td>{!accs.Email__c}</td>&nbsp;&nbsp;
+                        <td>{!accs.Phone}</td>&nbsp;&nbsp;
+                        <td>{!accs.Rating}</td>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </div> 
+    </aura:renderif>      
+</aura:component>

@@ -1,0 +1,32 @@
+<aura:component controller="DisplayAccWithCheckBoxLtng" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<ltng:require styles="{!$Resource.SLDS203 + '/assets/styles/lightning-design-system-ltng.css'}"/>
+    
+     <aura:attribute name="lstAccounts" type="CommonWrapperClass.DisplayAccountRecords[]" />	
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="container">
+        <h2 >Accounts</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><ui:button label="All" press="{!c.checkAllCheckboxes}" />
+                    <ui:button label="None" press="{!c.checkNoneCheckboxes}" /></th>
+                    <th>Name</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TO Check if list is not empty-->
+                    <aura:iteration var="account" items="{!v.lstAccounts}" >
+                        <tr>
+                            <td><ui:inputCheckbox value="{!account.isSelected}" aura:id="DependentCheckbox" /></td>
+                            <td><ui:outputText value="{!account.Name}"/></td>
+                            <td><ui:outputText value="{!account.rating}"/></td>
+                        </tr>
+                    </aura:iteration>
+            </tbody>
+        </table>
+        
+      <ui:button class="btn btn-default" press="{!c.doSomething}">Perform Action</ui:button>
+        
+    </div>
+</aura:component>

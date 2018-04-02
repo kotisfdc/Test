@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable"  controller="CreateCandidateRecord">
+    <aura:attribute name="Customer" type="Customer__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:iteration items="{!v.Customer}" var="c">
+      
+        <table>
+                <tr>
+                    <th><strong>Customer Name</strong></th>
+                    <th><strong>Phone</strong></th>
+                    <th><strong>Email</strong></th>
+                    <th><strong>Address</strong></th>
+
+                </tr>
+                <tr>
+                <td><a href="{! '#c/' + c.Id }">
+                    <p>{!c.Name}</p></a></td>
+                <td><p>{!c.Phone__c}</p></td>    
+                <td><p>{!c.Email__c}</p></td>    
+                 <td><p>{!c.Address__c}</p></td>   
+                </tr>
+                
+                </table>
+    </aura:iteration>
+    
+</aura:component>

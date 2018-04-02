@@ -1,0 +1,23 @@
+<apex:page controller="vf_AddORDelete_con">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!AccountAddList}" var="a">
+                    <apex:column headerValue="Account Name">
+                        <apex:inputField value="{!a.type}"/>
+                    </apex:column>
+                    <apex:column headerValue="Mobile Number">
+                        <apex:inputField value="{!a.Phone}"/>
+                    </apex:column>
+                    <apex:column headerValue="Rating">
+                        <apex:inputField value="{!a.Rating}"/>
+                    </apex:column>
+                    <apex:column headerValue="Industry">
+                        <apex:inputField value="{!a.Industry}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+                <br/><apex:commandLink value="Add Row" action="{!addRow}" />            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

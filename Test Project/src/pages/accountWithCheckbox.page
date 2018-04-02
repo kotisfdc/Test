@@ -1,0 +1,24 @@
+<apex:page controller="WrapperCheckbox_con">
+    <apex:form >
+    <apex:pageBlock title="Checkbox with Accounts ">
+        <apex:pageBlockTable value="{!wrapList}" var="lst">
+            <apex:column >
+				<apex:inputCheckbox value="{!lst.chkbox}"/>
+            </apex:column>
+            <apex:column value="{!lst.accRec.name}"/>
+            <apex:column value="{!lst.accRec.Rating}"/>
+            <apex:column value="{!lst.accRec.Phone}"/>
+        </apex:pageBlockTable>
+        
+        
+        <apex:commandButton action="{!selectMethod}" value="Edit"/>
+        
+    </apex:pageBlock>
+        <apex:pageBlock >
+      <apex:pageBlockTable value="{!selectedAccountRecs}" var="sel">
+        <apex:column value="{!sel.name}"/>
+     </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

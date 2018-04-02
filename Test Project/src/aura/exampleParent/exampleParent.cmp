@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable" >
+	<aura:attribute name="parentAttr" type="String" default="parent attribute"/>
+    <aura:handler name="change" value="{!v.parentAttr}" action="{!c.onParentAttrChange}"/>
+    <c:example1 childAttr="{!v.parentAttr}" />
+</aura:component>

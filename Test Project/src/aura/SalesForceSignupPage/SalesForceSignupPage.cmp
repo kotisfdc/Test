@@ -1,0 +1,11 @@
+<aura:component >
+    <ltng:require styles="{!$Resource.SLDS203 + '/assets/styles/lightning-design-system-ltng.css'}"/>
+    <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+        <div class="slds-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">.slds-size_1-of-2</div>
+        </div>
+        <div class="slds-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">.slds-size_1-of-2</div>
+        </div>
+    </div>
+</aura:component>

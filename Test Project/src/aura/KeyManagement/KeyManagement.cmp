@@ -1,0 +1,54 @@
+<aura:component controller="GenerateKeyMngmnt_contrll">
+    <aura:attribute name="masterKey" type="String"/>
+    <aura:attribute name="userKey" type="String"/>
+    <aura:attribute name="newMasterKey" type="String"/>
+    <aura:attribute name="newUserKey" type="String"/>
+    <aura:attribute name="Block1" type="Boolean" default="true"/>
+    <aura:attribute name="Block2" type="Boolean" />
+    <aura:attribute name="Block3" type="Boolean" />
+    <aura:attribute name="Block4" type="Boolean" />
+    <aura:attribute name="chkbox" type="Boolean" />
+    <aura:attribute name="options" type="List" default="[{'label': 'TPR', 'value': 'TPR'},{'label': 'TWOD', 'value': 'TWOD'},]"/>
+    <aura:attribute name="value" type="List"/>
+    <aura:attribute name="apps" type="Object"/>
+    
+    <aura:if isTrue="{!v.Block1}">
+    <div class="slds-form-element">
+        <button class="slds-button slds-button_brand " style="width:100%">
+                <lightning:button variant="brand" class="slds-button" label="Generate MasterKeY" onclick="{!c.clickMasterKey}"/>
+        </button>
+    </div>    
+    </aura:if>    
+    
+    
+    <aura:if isTrue="{!v.Block2}">
+        <lightning:input type="text"  name="Enter MasterKey" label="Enter MasterKey" value="{!v.newMasterKey}"/>
+        <lightning:button variant="brand" class="slds-button" label="Validate MasterKeY" onclick="{!c.validateMaster}"/>
+    </aura:if>
+    
+    
+    <aura:if isTrue="{!v.Block3}">
+        <div>
+            <div>
+                <!--<ui:inputCheckbox aura:id="ch1" label="TPR" value="{!v.chkbox}"/>
+                <ui:inputCheckbox aura:id="ch2" label="TWOD" value="{!v.chkbox}" />
+                <lightning:input type="checkbox" aura:id="ch1" label="TPR" name="TPR" />
+                <lightning:input type="checkbox" aura:id="ch2" label="TWOD" name="TWOD" />-->
+                
+                <lightning:checkboxGroup aura:id="mygroup" name="checkboxGroup" label="Apps"
+                                         options="{! v.options }" value="{! v.value }" onchange="{! c.handleChange }"
+                                         
+                                         />
+            </div>
+            <div>
+                <lightning:button variant="brand" class="slds-button" label="Generate UserKeY" onclick="{!c.clickUserKey}"/>
+            </div>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.Block4}">
+        <lightning:input type="text"  name="Enter UserKey" label="Enter UserKey" value="{!v.newUserKey}"/>
+        <lightning:button variant="brand" class="slds-button" label="Validate UserKeY" onclick="{!c.validateUser}"/>
+    </aura:if>
+    
+</aura:component>

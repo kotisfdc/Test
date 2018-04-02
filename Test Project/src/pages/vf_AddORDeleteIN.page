@@ -1,0 +1,72 @@
+<apex:page StandardController="Account" extensions="vf_AddORDelete_con" id="thePage">
+    
+    <apex:form >
+        
+        <apex:pageblock id="pb" >
+            
+            <apex:pageblock id="pb1">                                    
+                
+                <apex:pageblocktable value="{!lstInner}" var="e1" id="therepeat">
+                    
+                    <apex:column >
+                        
+                        <apex:facet name="header">Account</apex:facet>
+                        
+                        <apex:inputfield value="{!e1.con.accountid}"/>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        
+                        <apex:facet name="header">Name</apex:facet>
+                        
+                        <apex:inputtext value="{!e1.con.name}"/>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        
+                        <apex:facet name="header">Email</apex:facet>
+                        
+                        <apex:inputfield value="{!e1.con.email}"/>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        
+                        <apex:facet name="header">Phone</apex:facet>
+                        
+                        <apex:inputfield value="{!e1.con.Phone}"/>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        
+                        <apex:facet name="header">Add</apex:facet>
+                        
+                        <apex:commandButton value="Add" action="{!Add}" rerender="pb1"/> 
+                        
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        
+                        <apex:facet name="header">Del</apex:facet>
+                        
+                        <apex:commandButton value="Del" action="{!Del}" rerender="pb1">
+                            
+                            <apex:param name="rowToBeDeleted" value="{!e1.recCount}" assignTo="{!selectedRowIndex}"></apex:param>
+                            
+                        </apex:commandButton>
+                        
+                    </apex:column>
+                    
+                    
+                </apex:pageblocktable>                
+                
+                
+            </apex:pageblock>
+        </apex:pageblock>
+    </apex:form>
+    
+</apex:page>

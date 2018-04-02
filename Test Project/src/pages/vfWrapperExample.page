@@ -1,0 +1,25 @@
+<apex:page controller="wrapperExample_con">
+    <apex:form >
+        <apex:pageBlock >
+            <table>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Status</th>
+                    <th>Label Name</th>
+                    <th>Phone</th>
+                    <th>State</th>
+                </tr>
+                <tr>
+                  <td><apex:outputText value="{!b}"/></td>
+                  <td><apex:outputText value="{!b1}"/></td>
+
+                    <td><apex:outputText value="{!a}"/></td>
+                    <td><apex:outputText value="{!a1}"/></td>
+                    <td><apex:outputText value="{!a2}"/></td>
+
+
+                </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

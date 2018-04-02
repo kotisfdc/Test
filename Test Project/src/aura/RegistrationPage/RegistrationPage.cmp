@@ -1,0 +1,85 @@
+<aura:component >
+    <div>
+        <div style="width:50%;float:left;display:inline-block;">
+            Hello world
+        </div>
+        <div style="width:50%;float:right;display:inline-block;">
+            <div> <div class="slds-p-top_xx-large"></div></div>
+            <div style="font-size:30px;" class="slds-text-align_center">Get your very own Developer Edition</div>
+            <div style="font-size:20px;" class="slds-text-align_center">A full-featured copy of Force.com, for FREE.</div>
+            <div> <div class="slds-p-top_small"></div></div>
+            <div class="slds-align_absolute-center">
+                <div class="slds-box" style="width:50%;float:centre;">
+                    <div class="slds-form slds-form_stacked">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-01">Name</label>
+                            <div class="slds-grid">
+                                <div class="slds-col">
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="input-id-01" class="slds-input" placeholder="FirstName"/>
+                                    </div>
+                                    <div><div class="slds-p-horizontal_small"></div></div>
+                                </div>
+                                <div class="slds-col">
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="input-id-01" class="slds-input" placeholder="LastName"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-02">Email</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-02" class="slds-input" placeholder="your email address"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <ui:inputSelect aura:id="Role" label="Role"
+                                            class="slds-input"
+                                            labelClass="slds-form-element__label">
+                                <ui:inputSelectOption text="Developer" label="Developer" value="true"/>
+                                <ui:inputSelectOption text="Administrator" label="Administrator"/>
+                                <ui:inputSelectOption text="TeamLead" label="TeamLead"/>
+                                
+                            </ui:inputSelect>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-03">Company</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-03" class="slds-input" placeholder="your company"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <ui:inputSelect aura:id="Country" label="Country"
+                                            class="slds-input"
+                                            labelClass="slds-form-element__label">
+                                <ui:inputSelectOption text="India" label="India" value="true"/>
+                                <ui:inputSelectOption text="USA" label="USA"/>
+                                <ui:inputSelectOption text="UK" label="UK"/>
+                                
+                            </ui:inputSelect>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-04">Postal Code</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-04" class="slds-input" placeholder="Postal Code"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-05">Username </label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-05" class="slds-input" placeholder="Ex:name@yourcompany.com"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element"><div class="slds-text-body_regular">By registering, you confirm you have read and agree to the Terms of Use and the Master Subscription Agreement and to the storing and processing of your personal data by Salesforce as described in the Privacy Statement, including use for marketing purposes.</div></div>
+                        <div class="slds-form-element">
+                            <button style="width:100%" class="slds-button slds-button_brand">Submit
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

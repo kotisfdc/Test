@@ -1,0 +1,60 @@
+<aura:component controller="PagianationInltng">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="Accounts" type="Account[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
+    
+    
+    <div class="slds-m-around--medium">
+        
+        
+        <div class="slds-box"> 
+            <div class="slds-text-align_center">List Of Accounts</div>
+            <div class="slds"> 
+                <table class="slds-table slds-table--bordered slds-table--striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span class="slds-truncate">Name</span></th>
+                            <th scope="col"><span class="slds-truncate">Rating</span></th>
+                            <th scope="col"><span class="slds-truncate">Phone</span></th>
+                            
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <aura:iteration items="{!v.Accounts}" var="acc">
+                            <tr>
+                                <td>{!acc.Name}</td>
+                                <td>{!acc.Rating}</td>
+                                <td>{!acc.Phone}</td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                    <div class="slds-page-header" role="banner">
+                        <div class="slds-align--absolute-center">
+                            <!--  <aura:if isTrue="{!v.page &gt; 1}">
+                    
+                </aura:if>
+                <aura:if isTrue="{!v.page &lt; v.pages}">
+                </aura:if>
+-->
+                            <ui:button press="{!c.previousPage}" label="Previous Page"/>
+                            <ui:button aura:id="nextbtn" press="{!c.nextPage}" label="Next Page"/>
+                            
+                        </div>
+                        <p class="slds-page-header__title slds-truncate">{!v.total} Accounts • page {!v.page} / {!v.pages}</p>
+                        <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
+                            <ui:inputSelectOption text="10" label="10" value="true"/>
+                            <ui:inputSelectOption text="15" label="15"/>
+                            <ui:inputSelectOption text="20" label="20"/>
+                        </ui:inputSelect>
+                    </div>
+                </table>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</aura:component>

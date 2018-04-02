@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="contactRec" type="Contact" access="public"/>
+        <tr >
+        <td class="borderCls" >{!v.contactRec.Name}</td>
+        <td class="borderCls" >{!v.contactRec.Account.Name}</td>
+        <td> <ui:button label="Delete" press="{!c.deleteContact}"/></td>
+    </tr>
+</aura:component>

@@ -1,0 +1,112 @@
+<aura:component implements="force:appHostable"  controller="SFDCSignuppage_con">
+    <ltng:require styles="{!$Resource.SLDS203 + '/assets/styles/lightning-design-system-ltng.css'}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="lstContacts" type="Contact[]"/>
+    <aura:attribute name="newContact" type="Contact"
+                    default="{ 'sobjectType': 'Contact',
+                             'FirstName': '',
+                             'LastName': '',
+                             'Phone': '',
+                             'Email': ''
+                             }"/>
+    
+    <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+        <div class="slds-size_1-of-2 slds-small-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Display Recently Created records
+                <div class="slds-box">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Contact FirstName">FirstName</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Contact LastName">LastName</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Phone">Phone</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Email">Email</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <aura:iteration items="{!v.lstContacts}" var="lst">
+                                <tr>
+                                    <td data-label="Contact FirstName">
+                                        <div class="slds-truncate" title="Cloudhub">{!lst.FirstName}</div>
+                                    </td>
+                                    <td data-label="Contact LastName">
+                                        <div class="slds-truncate" title="Cloudhub">{!lst.LastName}</div>
+                                    </td>
+                                    <td data-label="Phone">
+                                        <div class="slds-truncate" title="Cloudhub">{!lst.Phone}</div>
+                                    </td>
+                                    <td data-label="Email">
+                                        <div class="slds-truncate" title="Cloudhub">{!lst.Email}</div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>  
+        </div>
+        
+        <div class="slds-size_1-of-2 slds-small-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+            <div class="slds-box slds-box_x-small  slds-m-around_x-small">
+                <div><div class="slds-p-top_medium"></div>
+                </div>
+                <div class="slds-text-body_regular slds-text-align_center">Image Here.</div>
+                <div class="slds-text-heading_large slds-text-align_center">Get your very own Developer Edition</div>
+                <div class="slds-text-heading_medium slds-text-align_center">A full-featured copy of Force.com, for FREE.</div>
+                <div><div class="slds-p-top_medium"></div>
+                </div>
+                <div class="slds-box">
+                    
+                    <div class="slds-form slds-form_stacked">
+                        <div class="slds-form-element">
+                           <div class="slds-grid slds-grid_pull-padded-medium"> 
+                                <div class="slds-col slds-p-horizontal_medium">
+                                    <div class="slds-form-element__control">
+                                        <lightning:input aura:id="contactField" name="firstName" label="Name" value="{!v.newContact.FirstName}" placeholder="First" />
+                                    </div>
+                                    
+                                </div>
+                                <div class="slds-col slds-p-horizontal_medium">
+                                    <div class="slds-form-element__control">
+                                        <lightning:input aura:id="contactField" name="lastName" label="" value="{!v.newContact.LastName}" required="true" placeholder="Last" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <lightning:input aura:id="contactField" name="Phone" label="Phone" value="{!v.newContact.Phone}" placeholder="your phone number" />
+                                
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <lightning:input aura:id="contactField" name="Email" label="Email" value="{!v.newContact.Email}" placeholder="your email address"/>
+                                
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <button class="slds-button slds-button_brand " style="width:100%">
+                                <lightning:button variant="brand" label="Submit" onclick="{! c.createContact }" />
+                            </button>
+                        </div>
+                    </div>  
+                </div>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+</aura:component>

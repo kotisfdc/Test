@@ -1,0 +1,10 @@
+<apex:page docType="html-5.0" title="Business Card">
+	     
+	    <div class="mypage">
+            {!$User.FirstName}<br/>
+            {!$User.LastName} <br/>
+	        {!$User.Title} <br/>
+	        {!$User.Email} <br/>
+	        {!$User.Phone}
+	    </div>
+	</apex:page>

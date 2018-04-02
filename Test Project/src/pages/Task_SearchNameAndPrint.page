@@ -1,0 +1,17 @@
+<apex:page controller="Task_SearchNameAndPrint_con">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Search By Name">
+                <apex:outputLabel value="Enter Name">
+                    <apex:inputText value="{!aName}"/>
+                </apex:outputLabel>
+                <apex:commandButton value="Search" action="{!searchByNames}"/>
+            </apex:pageBlockSection> 
+            <apex:pageBlockSection title="result">
+                <apex:pageBlockTable value="{!lstAcc}" var="lst">
+                <apex:column value="{!lst.name}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

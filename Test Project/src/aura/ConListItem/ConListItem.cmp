@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute name="contactsRec" type="Contact[]" />
+    <aura:registerEvent name="deleteContact" type="c:deleteConListEvt"/>
+    <tr>
+        <td><ui:inputText label="Name" class="field" value="{!v.contactsRec.name}" /></td>
+        <td><ui:inputText label="Email" class="field" value="{!v.contactsRec.email}" /></td>
+        <td><ui:inputText label="Phone" class="field" value="{!v.contactsRec.phone}" /></td>
+        <td> <ui:button label="Delete" press="{!c.deleteContact}"/></td>
+    </tr>
+</aura:component>

@@ -1,0 +1,36 @@
+<apex:page Controller="Pagination_con" >
+    <apex:form id="frmid">
+        <apex:pageBlock title="Pagination" id="Pblock1" >
+            <apex:pageBlockTable value="{!Accounts}" var="a">
+               
+                <apex:column headerValue="Name">
+                    <apex:outputField value="{!a.Name}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Phone">
+                    <apex:outputField value="{!a.Phone}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Rating">
+                    <apex:outputField value="{!a.Rating}"/>
+                </apex:column><br/><br/>
+            </apex:pageBlockTable>
+            <div align="center" draggable="false" >
+                <apex:facet name="footer" >
+                    
+                    <b>Page No:: <strong>{!pageNumber}</strong></b> </apex:facet> 
+            </div>
+        </apex:pageBlock>
+        
+        
+        
+            
+            <div align="center">
+                <apex:commandButton value="First Page" action="{!Firstbtn}" disabled="{!Prv}" reRender="frmid"/>
+                <apex:commandButton value="PreviousPage" action="{!prvbtn}" disabled="{!Prv}" reRender="frmid"/>
+                <apex:commandButton value="NextPage" action="{!Nxtbtn}"  disabled="{!nxt}" reRender="frmid" />
+                <apex:commandButton value="LastPage" action="{!lstbtn}" disabled="{!nxt}" reRender="frmid" />
+            </div>
+        
+    </apex:form>
+</apex:page>

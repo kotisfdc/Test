@@ -1,0 +1,7 @@
+<apex:page standardController="account" recordSetVar="arecs">
+    <apex:form >
+    <apex:pageBlock title="Account Details">
+        
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>
